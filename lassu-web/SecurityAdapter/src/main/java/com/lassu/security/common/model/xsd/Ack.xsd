@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Ack"
+	xmlns:tns="http://www.example.org/Ack" elementFormDefault="qualified">
+
+
+    <element name="Ack" type="tns:AckType"></element>
+    
+    <complexType name="AckType">
+    	<attribute name="api" type="string" use="required"></attribute>
+    	<attribute name="reqMsgId" type="string" use="required"></attribute>
+    	<attribute name="ts" type="string" use="required"></attribute>
+    	<attribute name="status" type="string" use="required"></attribute>
+    	<attribute name="errorCd" type="string"></attribute>
+    </complexType>
+
+</schema>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Lassu Web1</title>
+<link rel="stylesheet" href="/css/lib/w3.css"/>
+<link rel="stylesheet" href="/css/lib/font-awesome.min.css"/>
+<link rel="stylesheet" href="/css/app.css"/>
+</head>
+<body>
+	<div class="w3-bar w3-top w3-theme w3-large header">
+		<span class="w3-bar-item w3-left">Lassu Web1</span>
+	</div>
+	<div class="loginbox w3-main w3-row w3-white w3-card-4">
+		<div class="w3-center w3-large w3-padding-16">Login To Continue</div>
+		<form th:action="@{/login}" method="post" class="w3-container" autocomplete="off">
+			<div class="w3-row">
+				<h5  th:if="${msg}" th:text="${msg}" th:class="error"></h5>
+			</div>
+			<div class="w3-row w3-section">
+				<div class="w3-col loginbox-label">
+					<i class="w3-xxlarge fa fa-user"></i>
+				</div>
+				<div class="w3-rest">
+					<input class="w3-input" type="text" placeholder="Enter Username" name="username" required="required"/>
+				</div>
+			</div>
+			<div class="w3-row w3-section">
+				<div class="w3-col loginbox-label">
+					<i class="w3-xxlarge fa fa-key"></i>
+				</div>
+				<div class="w3-rest">
+					<input class="w3-input" type="password" placeholder="Enter Password" name="password" required="required"/>
+				</div>
+			</div>
+			<div class="w3-row w3-section">
+				<button class="w3-button w3-block w3-theme" type="submit">
+					<i class="w3-large fa fa-sign-in">&nbsp;&nbsp;Sign In</i>
+				</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

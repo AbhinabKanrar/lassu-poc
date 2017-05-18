@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/ReqChkAuth"
+	xmlns:tns="http://www.example.org/ReqChkAuth" elementFormDefault="qualified">
+
+    <element name="ReqChkAuth" type="tns:ReqChkAuthType"></element>
+
+    <complexType name="ReqChkAuthType">
+    	<sequence>
+    		<element name="head" type="tns:headType" maxOccurs="1" minOccurs="1"></element>
+    		<element name="cred" type="tns:credType" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="headType">
+    	<attribute name="ver" type="string"></attribute>
+    	<attribute name="ts" type="string"></attribute>
+    	<attribute name="msgId" type="string"></attribute>
+    	<attribute name="org" type="string"></attribute>
+    </complexType>
+
+    <complexType name="credType">
+    	<attribute name="note" type="string"></attribute>
+    	<attribute name="data" type="string"></attribute>
+    </complexType>
+
+    <element name="RespChkAuth" type="tns:RespChkAuthType"></element>
+
+    <complexType name="RespChkAuthType">
+    	<sequence>
+    		<element name="head" type="tns:headType"></element>
+    		<element name="resp" type="tns:respType"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="respType">
+    	<attribute name="note" type="string"></attribute>
+    	<attribute name="data" type="string"></attribute>
+    </complexType>
+</schema>
