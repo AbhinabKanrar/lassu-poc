@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+.loginbox{max-width:450px;margin:0 auto;margin-top:60px;}
+.loginbox-label{width:50px}
+.header{z-index:4}
+.nav-menu{z-index:3;width:300px}
+.nav-menu-close{cursor:pointer}
+#ui-view{margin-left:300px;margin-top:43px}
+table.dataTable tr,td{ background-color: white; }
+.error{
+	margin-bottom: 20px;
+	border-radius: 4px;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+.success{
+	margin-bottom: 20px;
+	border-radius: 4px;
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
