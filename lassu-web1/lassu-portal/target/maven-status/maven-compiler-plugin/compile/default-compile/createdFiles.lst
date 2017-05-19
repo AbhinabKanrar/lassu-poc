@@ -1,8 +1,0 @@
-com/lassu/portal/router/LoginRouter.class
-com/lassu/portal/security/GlobalAuthenticationConfig.class
-com/lassu/portal/security/AuthSuccessHandler.class
-com/lassu/portal/BootLoader.class
-com/lassu/portal/security/WebSecurityConfig$1.class
-com/lassu/portal/security/WebSecurityConfig.class
-com/lassu/portal/security/GlobalAuthenticationConfig$1.class
-com/lassu/portal/security/AuthFailureHandler.class
