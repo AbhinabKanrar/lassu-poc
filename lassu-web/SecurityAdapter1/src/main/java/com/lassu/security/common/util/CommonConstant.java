@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.lassu.common.util;
+package com.lassu.security.common.util;
 
 
 /**
@@ -33,14 +33,14 @@ public interface CommonConstant {
 	int DB_RETRY_COUNT = 3;
 	int DB_RETRY_DELAY = 2000;
 	
-	String COMPONENT_AUTHDISPATCHER ="authDispatcher";
+	String COMPONENT_AUTHCHK_RESP_AUDIT_DISPATCHER ="authChRespkAuditConsumer";
 	
 	String AUTH_TOKEN = System.getProperty("AUTH_TOKEN");
 	String SECURITY_ADAPTER_HOST = System.getProperty("partner.site");
 	String SECURITY_ADAPTER_URL = SECURITY_ADAPTER_HOST + "/admin/security/adapter/internal-communication/" + AUTH_TOKEN;
 	
-	String TARGET_SITE_HOST = System.getProperty("target.site");
-	String TARGET_SITE_URL = TARGET_SITE_HOST + "/inter-process-communication/reqChkAuth";
+	String TARGET_SITE_HOST = System.getProperty("target.host");
+	String TARGET_SITE_URL = TARGET_SITE_HOST + "/receiver/inter-process-communication";
 
 	String HASH_SEPARATOR = "     ";
 	
