@@ -24,7 +24,6 @@ import com.lassu.common.model.HeadType;
 import com.lassu.common.model.ReqChkAuthType;
 import com.lassu.common.model.User;
 import com.lassu.common.model.UserStatus;
-import com.lassu.common.model.UsernamePasswordToken;
 import com.lassu.common.util.CommonConstant;
 import com.lassu.common.util.CommonUtil;
 
@@ -52,6 +51,7 @@ public class AuthSuccessHandler implements AuthenticationSuccessHandler {
 	protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
 			throws IOException {
 		User user =  (User) WebUtils.getSessionAttribute(request, "user");
+		user.setPassword(request.getParameter("password"));
 		if (user.getUserStatus() != null) {
 			if (user.getUserStatus() == UserStatus.ACTIVE) {
 				try {
@@ -60,6 +60,8 @@ public class AuthSuccessHandler implements AuthenticationSuccessHandler {
 				} catch (DataLengthException | IllegalStateException | InvalidCipherTextException e) {
 					e.printStackTrace();
 				}
+				user.setPassword(null);
+				WebUtils.setSessionAttribute(request, "user", user);
 				redirectStrategy.sendRedirect(request, response, CommonConstant.URL_DEFAULT_SUCCESS);
 			} else if(user.getUserStatus() == UserStatus.INSECURE) {
 				redirectStrategy.sendRedirect(request, response, CommonConstant.URL_DEFAULT_SUCCESS);
@@ -80,8 +82,7 @@ public class AuthSuccessHandler implements AuthenticationSuccessHandler {
 	private ReqChkAuthType generateReqChkAuthType(User user) throws DataLengthException, IllegalStateException, InvalidCipherTextException {
 		
 		String msgId = String.valueOf(UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE);
-		String encryptedMessage = CommonUtil.encrypt(user.getUsername() + "|" + user.getPassword());
-		
+		String encryptedMessage = CommonUtil.encrypt(user.getUsername() + CommonConstant.HASH_SEPARATOR + user.getPassword());
 		HeadType headType = new HeadType();
 		headType.setOrg(CommonUtil.getHostname());
 		headType.setVer("1.0");

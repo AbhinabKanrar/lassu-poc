@@ -26,10 +26,10 @@ public class UserDaoImpl implements UserDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private static final String RETRIEVE_SQL_BY_USERNAME = "SELECT * FROM lassu.web_x_user_detail where username =:username";
-
 	@Autowired
 	private NamedParameterJdbcTemplate jdbcNTemplate;
+	
+	private static final String RETRIEVE_SQL_BY_USERNAME = "SELECT * FROM lassu.web_x_user_detail where username =:username";
 
 	@Override
 	@Transactional(isolation = Isolation.READ_COMMITTED, readOnly = true)

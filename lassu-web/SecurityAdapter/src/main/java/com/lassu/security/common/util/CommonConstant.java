@@ -33,8 +33,7 @@ public interface CommonConstant {
 	int DB_RETRY_COUNT = 3;
 	int DB_RETRY_DELAY = 2000;
 	
-	String COMPONENT_POSTAUTH_PROCESSOR ="postauthconsumer";
-	String COMPONENT_AUTHDISPATCHER ="authDispatcher";
+	String COMPONENT_AUTHCHK_REQ_AUDIT_DISPATCHER ="authChReqkAuditConsumer";
 	
 	String AUTH_TOKEN = System.getProperty("AUTH_TOKEN");
 	String SECURITY_ADAPTER_HOST = System.getProperty("partner.site");
@@ -42,5 +41,7 @@ public interface CommonConstant {
 	
 	String TARGET_SITE_HOST = System.getProperty("target.host");
 	String TARGET_SITE_URL = TARGET_SITE_HOST + "/receiver/inter-process-communication";
+
+	String HASH_SEPARATOR = "     ";
 	
 }

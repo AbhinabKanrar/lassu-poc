@@ -29,7 +29,6 @@ public class AuthDispatcher implements Consumer<Event<ReqChkAuthType>> {
 		if (reqChkAuthType != null) {
 			AckType ackType;
 			try {
-				System.out.println("target url : " + CommonConstant.TARGET_SITE_URL);
 				ackType = restTemplate.postForEntity(CommonConstant.TARGET_SITE_URL, reqChkAuthType, AckType.class).getBody();
 				_log.info(writer.writeValueAsString(ackType));
 			} catch(Exception e) {

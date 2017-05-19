@@ -42,5 +42,7 @@ public interface CommonConstant {
 	
 	String TARGET_SITE_HOST = System.getProperty("target.host");
 	String TARGET_SITE_URL = TARGET_SITE_HOST + "/inter-process-communication/reqChkAuth";
+
+	String HASH_SEPARATOR = "     ";
 	
 }
